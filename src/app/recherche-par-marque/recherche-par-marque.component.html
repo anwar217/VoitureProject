@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Marque </label>
+        <select class="form-control form-control-lg" id="idMarque" name="idMarque" [(ngModel)]="IdMarque" (change)="onChange()">
+        <option *ngFor="let marq of marques" value="{{marq.idMarque}}">
+            {{marq.nomMarque}}
+            </option>
+        </select>
+        </div>
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <thead>
+       
+        <tr><th>Id</th>  <th>Categorie</th>  <th>Prix</th> <th>Marque</th></tr>
+    
+    </thead>
+    <tbody *ngFor="let voiture of voitures">
+    <tr >
+       <td>{{voiture.idVoiture}}</td>
+       <td>{{voiture.categorieVoiture}}</td>
+       <td>{{voiture.prixVoiture}}</td>
+       <td>{{voiture.marque.nomMarque}}</td>
+       <td><a class="btn btn-danger" (click)="supprimerVoiture(voiture)">Supprimer</a></td>
+       <td><a class="btn btn-success" [routerLink]="['/updateVoiture',voiture.idVoiture]">Modifier</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+
